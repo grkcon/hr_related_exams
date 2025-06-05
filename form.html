@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRK HR 문제</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        .form-container {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-header h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .form-header p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label.main-label {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .options-group .option-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .options-group .option-item input[type="radio"],
+        .options-group .option-item input[type="checkbox"] {
+            margin-right: 10px;
+            width: auto; /* Override full width */
+        }
+        .options-group .option-item label {
+            font-weight: normal;
+            font-size: 14px;
+            color: #333;
+        }
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #0078d4; /* Microsoft Blue */
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+        button[type="submit"]:hover {
+            background-color: #005a9e; /* Darker Microsoft Blue */
+        }
+        .required-indicator {
+            color: red;
+            margin-left: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>LP_Question(GRK Partners)</h1>
+            <p>총 10문제이며, 제한 시간은 20분입니다.</p>
+            <div id="timerDisplay" style="text-align:center; font-size: 1.2em; color: red; font-weight: bold; margin-bottom:15px;"></div>
+        </div>
+
+        <form action="https://script.google.com/macros/s/AKfycbwKgC2MRbMd5eK-E0W0HHaihKGKEgwPpqeJ9CLJCYLtOkMxVuyrPwZHYuc-AXSVS2vfcw/exec" method="POST">
+            <div class="form-group">
+                <label for="userName" class="main-label">성함을 입력해주세요.<span class="required-indicator">*</span></label>
+                <input type="text" id="userName" name="userName" placeholder="답변을 입력하세요" required>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber" class="main-label">전화번호를 입력해주세요. (숫자만 입력해주세요.)<span class="required-indicator">*</span></label>
+                <input type="text" id="phoneNumber" name="phoneNumber" placeholder="답변을 입력하세요" required>
+            </div>
+            <div class="form-group">
+                <label for="birthDate" class="main-label">생년월일을 입력해주세요. (YYYYMMDD)<span class="required-indicator">*</span></label>
+                <input type="text" id="birthDate" name="birthDate" placeholder="답변을 입력하세요" required>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label class="main-label">Question 1 of 10<span class="required-indicator">*</span></br></br>
+                Four student groups at the university - the swim club, the jazz combo, the table tennis</br>
+                team and the rugby sevens - schedule a social event on Wednesday, Thursday or Friday</br>
+                in the same week.</br></br>
+                The social events (in no order): movie night, pub quiz, escape room and ten-pin bowling.</br>
+                Two events are scheduled for the same day and time.</br>
+                The movie night is scheduled for the day before the pub quiz and the day after the swim</br>
+                club event.</br></br>
+                The table tennis team and the jazz combo have their events (neither of which is the</br>
+                escape room) on the same night.</br>
+                The rugby sevens event is scheduled a day after the ten-pin bowling event.</br></br>
+                Which of the following must be true?</br></br>
+              </label>
+              <div class="options-group">
+                <div class="option-item">
+                    <input type="radio" id="q1_opt1" name="question1_choice" value="optionA" required>
+                    <label for="q1_opt1">A. The escape room event is on Wednesday.</label>
+                </div>
+                <div class="option-item">
+                    <input type="radio" id="q1_opt2" name="question1_choice" value="optionB">
+                    <label for="q1_opt2">B. The rugby sevens event is on Thursday.</label>
+                </div>
+                <div class="option-item">
+                    <input type="radio" id="q1_opt3" name="question1_choice" value="optionC">
+                    <label for="q1_opt3">C. The table tennis event is a pub quiz.</label>
+                </div>
+                <div class="option-item">
+                    <input type="radio" id="q1_opt4" name="question1_choice" value="optionD">
+                    <label for="q1_opt4">D. The jazz combo event is ten-pin bowling.</label>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label class="main-label">Question 2 of 10<span class="required-indicator">*</span><br><br>
+                Mindy, Morgan, Carol and Beth went shopping. They each spent exactly £100. The items<br>
+                they bought included shirts at £20, skirts at £35, jeans at £45 and dresses at £30.<br><br>
+                Mindy and Beth bought the same items.<br>
+                Morgan bought blue jeans.<br>
+                Mindy bought 1 more item than Morgan.<br>
+                Carol bought the maximum amount of items possible, which was 1 more than Beth.<br>
+                Only 1 pair of jeans was bought amongst the group.<br><br>
+                Which of the following must be true?<br><br>
+              </label>
+              <div class="options-group">
+                <div class="option-item">
+                  <input type="radio" id="q2_opt1" name="question2_choice" value="optionA" required>
+                  <label for="q2_opt1">A. Beth bought 2 dresses and 2 shirts.</label>
+                </div>
+                <div class="option-item">
+                  <input type="radio" id="q2_opt2" name="question2_choice" value="optionB">
+                  <label for="q2_opt2">B. Carol bought 6 items.</label>
+                </div>
+                <div class="option-item">
+                  <input type="radio" id="q2_opt3" name="question2_choice" value="optionC">
+                  <label for="q2_opt3">C. Morgan bought black jeans.</label>
+                </div>
+                <div class="option-item">
+                  <input type="radio" id="q2_opt4" name="question2_choice" value="optionD">
+                  <label for="q2_opt4">D. Morgan did not buy a skirt.</label>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label class="main-label">Question 3 of 10<span class="required-indicator">*</span><br><br>
+                  Billy has a mixed toolbox of either mechanical or electric tools in his cupboard. This box<br>
+                  contains four tools: a screwdriver, wrench, spanner, and crowbar. Each of these are<br>
+                  either made out of iron, or steel. Billy can only use each of these tools for one purpose,<br>
+                  which could be twisting, prying, pulling or pushing.<br><br>
+                  The two mechanical tools are both made out of steel. The two tools that can twist and<br>
+                  push are made of iron.<br>
+                  The screwdriver is not made of iron, and can be used to pull.<br>
+                  The crowbar is not an electric tool.<br><br>
+                  Which of the following statements is true?<br><br>
+              </label>
+              <div class="options-group">
+                <div class="option-item">
+                    <input type="radio" id="q3_opt1" name="question3_choice" value="optionA" required>
+                    <label for="q3_opt1">A. The iron spanner is used to push, and is a mechanical tool.</label>
+                </div>
+                <div class="option-item">
+                    <input type="radio" id="q3_opt2" name="question3_choice" value="optionB">
+                    <label for="q3_opt2">B. The steel wrench is used to twist, and is an electrical tool.</label>
+                </div>
+                <div class="option-item">
+                    <input type="radio" id="q3_opt3" name="question3_choice" value="optionC">
+                    <label for="q3_opt3">C. The iron screwdriver is used to pull, and is a mechanical tool.</label>
+                </div>
+                <div class="option-item">
+                    <input type="radio" id="q3_opt4" name="question3_choice" value="optionD">
+                    <label for="q3_opt4">D. The steel crowbar is used to pry, and is a mechanical tool.</label>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label class="main-label">Question 4 of 10<span class="required-indicator">*</span><br><br>
+                  A container shipping company, OSL, owns 250 vessels. Currently 86 of their ships are<br>
+                  less than 10 years old and of those vessels 31 are currently docked in port. Another 58<br>
+                  vessels are docked in port but are older than 10 years and of these ships 12 are panamax<br>
+                  ships which means they can transport up to 65 000 tonnes of cargo. All ships less than<br>
+                  10 years old can transport up to 85 000 tonnes of cargo. There are currently 63 panamax<br>
+                  vessels not docked in ports.<br><br>
+                  Which of the following categories accounts for the most ships?<br><br>
+              </label>
+              <div class="options-group">
+                <div class="option-item">
+                    <input type="radio" id="q4_opt1" name="question4_choice" value="optionA" required>
+                    <label for="q4_opt1">A. Ships docked in port.</label>
+                </div>
+                <div class="option-item">
+                    <input type="radio" id="q4_opt2" name="question4_choice" value="optionB">
+                    <label for="q4_opt2">B. Ships less than 10 years old.</label>
+                </div>
+                <div class="option-item">
+                    <input type="radio" id="q4_opt3" name="question4_choice" value="optionC">
+                    <label for="q4_opt3">C. Panamax ships.</label>
+                </div>
+                <div class="option-item">
+                    <input type="radio" id="q4_opt4" name="question4_choice" value="optionD">
+                    <label for="q4_opt4">D. Ships that are older than 10 years and are neither docked in port nor panamax<br>ships.</label>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label class="main-label">Question 5 of 10<span class="required-indicator">*</span><br><br>
+                  A manufacturer of drain pipes can create four different types of pipe in their factory:<br>
+                  PVC, lead, iron, or copper, each of which are always made in either long or short<br>
+                  variants. In no particular order, each of these materials cost $0.5, $1, $1.5 or $4 per pipe<br>
+                  to manufacture, regardless of the length of the pipe. The manufacturer creates one pipe<br>
+                  out of each of the four materials, at least one of which is long, and at least one of which<br>
+                  is short.<br><br>
+                  The copper pipe is three times more expensive than another type of pipe to manufacture,<br>
+                  and is the same length as the lead pipe.<br>
+                  The iron pipe costs twice as much as one of the other types of pipe, and is the same<br>
+                  length as another type of pipe that is more expensive to manufacture.<br>
+                  The lead pipe is not short, and costs the most to make.<br><br>
+                  Which of the following statements is true?<br><br>
+              </label>
+              <div class="options-group">
+                <div class="option-item">
+                    <input type="radio" id="q5_opt1" name="question5_choice" value="optionA" required>
+                    <label for="q5_opt1">A. The PVC pipe is short.</label>
+                </div>
+                <div class="option-item">
+                    <input type="radio" id="q5_opt2" name="question5_choice" value="optionB">
+                    <label for="q5_opt2">B. The iron pipe costs $0.5 to manufacture.</label>
+                </div>
+                <div class="option-item">
+                    <input type="radio" id="q5_opt3" name="question5_choice" value="optionC">
+                    <label for="q5_opt3">C. The lead pipe is short.</label>
+                </div>
+                <div class="option-item">
+                    <input type="radio" id="q5_opt4" name="question5_choice" value="optionD">
+                    <label for="q5_opt4">D. The iron pipe is short.</label>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+            <label class="main-label">Question 6 of 10<span class="required-indicator">*</span><br><br>
+                Five teams from the same city - the Lions, the Rangers, the Unicorns, the Wasps and the<br>
+                Zebras - compete in a regional tournament.<br>
+                Each team wears jerseys of the same colour: white, red, yellow, purple or black.<br>
+                Each team wears trainers of the same colour: white, black, orange, blue or green.<br>
+                No team wears jerseys and trainers of the same colour.<br><br>
+                The Zebras and the Lions do not wear black.<br>
+                The Wasps and the Unicorns do not wear white.<br>
+                The Rangers wear green trainers, but they do not wear purple or yellow jerseys.<br>
+                The Lions wear red jerseys, but they do not wear white or blue trainers. The jerseys worn<br>
+                by the Unicorns are the same colour as the trainers worn by the Wasps.<br>
+                The Zebras wear white trainers, but they do not wear yellow jerseys.<br><br>
+                Which of the following must be true?<br><br>
+            </label>
+            <div class="options-group">
+              <div class="option-item">
+                  <input type="radio" id="q6_opt1" name="question6_choice" value="optionA" required>
+                  <label for="q6_opt1">A. The Rangers wear black jerseys.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q6_opt2" name="question6_choice" value="optionB">
+                  <label for="q6_opt2">B. The Unicorns wear black trainers.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q6_opt3" name="question6_choice" value="optionC">
+                  <label for="q6_opt3">C. The Wasps wear blue trainers.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q6_opt4" name="question6_choice" value="optionD">
+                  <label for="q6_opt4">D. The Zebras wear purple jerseys.</label>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label class="main-label">Question 7 of 10<span class="required-indicator">*</span><br><br>
+                On a coach travelling from London to Manchester, all passengers are either lawyers,<br>
+                accountants or chefs. All passengers are from either Portugal, India or the USA.<br>
+                Between London and Manchester, the coach stops twice.<br><br>
+                At the first stop, only the lawyers who are not American, leave the coach.<br>
+                At the second stop, only the Portuguese who are not lawyers, the American chefs and<br>
+                the Indian chefs leave the coach.<br><br>
+                Which of the following must be false?<br><br>
+            </label>
+            <div class="options-group">
+              <div class="option-item">
+                  <input type="radio" id="q7_opt1" name="question7_choice" value="optionA" required>
+                  <label for="q7_opt1">A. None of the chefs reach Manchester.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q7_opt2" name="question7_choice" value="optionB">
+                  <label for="q7_opt2">B. Indian accountants reach Manchester.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q7_opt3" name="question7_choice" value="optionC">
+                  <label for="q7_opt3">C. Out of all lawyers, only the American ones reach Manchester.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q7_opt4" name="question7_choice" value="optionD">
+                  <label for="q7_opt4">D. Out of all Indian passengers, only the lawyers reach Manchester.</label>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label class="main-label">Question 8 of 10<span class="required-indicator">*</span><br><br>
+                Six students (including Robin) get into a rollercoaster car that seats six. The rollercoaster is next to lake.<br>
+                <img src="q_8.png" alt="롤러코스터 좌석 다이어그램" style="max-width: 100%; height: auto; display: block; margin-top: 10px; margin-bottom: 10px;"><br>
+                Tiffany does not sit next to Stu or Terrence, but she sits directly in front of Sarita. Umberto sits between<br>
+                Stu and Terrence on the platform side of the car. Stu does not sit next to Sarita.<br><br>
+                Who must sit in the front of the car, on the lake and platform sides, respectively?<br><br>
+            </label>
+            <div class="options-group">
+              <div class="option-item">
+                  <input type="radio" id="q8_opt1" name="question8_choice" value="optionA" required>
+                  <label for="q8_opt1">A. Robin and Stu.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q8_opt2" name="question8_choice" value="optionB">
+                  <label for="q8_opt2">B. Stu and Robin.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q8_opt3" name="question8_choice" value="optionC">
+                  <label for="q8_opt3">C. Tiffany and Robin.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q8_opt4" name="question8_choice" value="optionD">
+                  <label for="q8_opt4">D. Tiffany and Umberto.</label>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label class="main-label">Question 9 of 10<span class="required-indicator">*</span><br><br>
+                Beth, Joy, Helen and Cora decided to buy ice creams.<br>
+                The flavours of ice creams that they bought are chocolate, strawberry, vanilla and pistachio.<br>
+                Each ice cream has a different topping, which are sprinkles, marshmallows, wafers and almonds.<br>
+                Helen did not buy strawberry or chocolate ice cream, but she chose marshmallows as her topping.<br>
+                The person who bought chocolate ice cream chose neither wafer nor sprinkles.<br>
+                Beth boughta pistachio ice cream but did not choose sprinkles.<br><br>
+                Which of the following is true?<br><br>
+            </label>
+            <div class="options-group">
+              <div class="option-item">
+                  <input type="radio" id="q9_opt1" name="question9_choice" value="optionA" required>
+                  <label for="q9_opt1">A. Joy did not buy vanilla ice cream.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q9_opt2" name="question9_choice" value="optionB">
+                  <label for="q9_opt2">B. Cora chose wafers as her topping.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q9_opt3" name="question9_choice" value="optionC">
+                  <label for="q9_opt3">C. Helen did not buy vanilla ice cream.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q9_opt4" name="question9_choice" value="optionD">
+                  <label for="q9_opt4">D. Beth chose almonds as her topping.</label>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label class="main-label">Question 10 of 10<span class="required-indicator">*</span><br><br>
+                All medical students must take part in one of the monthly conferences, each year they are at medical<br>
+                school. Some students in 3rd year, but no students in 1st year take part in more than 1 conference per<br>
+                year. No students who attend a conference in October can attend another in November and those who<br>
+                attend in December cannot attend again until March. All students who take part in a conference in April<br>
+                must also take part in May. Alex, a 3rd year student, did not attend the conference in October.<br><br>
+                Which of the following statements is true?<br><br>
+            </label>
+            <div class="options-group">
+              <div class="option-item">
+                  <input type="radio" id="q10_opt1" name="question10_choice" value="optionA" required>
+                  <label for="q10_opt1">A. Alex did not attend the conference in November.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q10_opt2" name="question10_choice" value="optionB">
+                  <label for="q10_opt2">B. No students in 1st year take part in the conference in April.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q10_opt3" name="question10_choice" value="optionC">
+                  <label for="q10_opt3">C. A 1st year medical student attended the conference in April and May.</label>
+              </div>
+              <div class="option-item">
+                  <input type="radio" id="q10_opt4" name="question10_choice" value="optionD">
+                  <label for="q10_opt4">D. Alex attended the conference in December and January.</label>
+              </div>
+            </div>
+        </div>    
+        <hr>
+        <button type="submit">제출하기</button>
+      </form>
+    </div>
+</body>
+</html>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- 중앙 플래그 ---
+    let isAutoSubmitting = false;
+
+    // --- 타이머 설정 및 요소 가져오기 ---
+    const initialDurationSeconds = 20 * 60;
+    const timerDisplayElement = document.getElementById('timerDisplay');
+    const mainForm = document.querySelector('form');
+    const submitButton = mainForm ? mainForm.querySelector('button[type="submit"]') : null;
+    
+    let timerInterval; // setInterval의 ID를 저장할 변수
+    let targetEndTime;   // 타이머 목표 종료 시간 (Unix timestamp, 초 단위)
+
+    function formatTime(totalSeconds) {
+        if (totalSeconds < 0) totalSeconds = 0;
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    function startOrResumeTimer() {
+        const nowSeconds = Math.floor(Date.now() / 1000);
+        let timeLeft;
+
+        const storedTargetEndTime = sessionStorage.getItem('quizTargetEndTime');
+
+        if (storedTargetEndTime) {
+            targetEndTime = parseInt(storedTargetEndTime, 10);
+            timeLeft = targetEndTime - nowSeconds;
+            if (timeLeft <= 0) {
+                timeLeft = 0;
+                handleTimeExpired();
+                return;
+            }
+        } else {
+            // 새 타이머 시작
+            targetEndTime = nowSeconds + initialDurationSeconds;
+            sessionStorage.setItem('quizTargetEndTime', targetEndTime);
+            timeLeft = initialDurationSeconds;
+        }
+
+        if (timerDisplayElement) {
+            timerDisplayElement.textContent = "남은 시간: " + formatTime(timeLeft);
+        }
+
+        // 기존 인터벌이 있다면 중지
+        if (timerInterval) {
+            clearInterval(timerInterval);
+        }
+        
+        timerInterval = setInterval(function() {
+            const currentSeconds = Math.floor(Date.now() / 1000);
+            let remaining = targetEndTime - currentSeconds;
+
+            if (remaining >= 0) {
+                if (timerDisplayElement) {
+                    timerDisplayElement.textContent = "남은 시간: " + formatTime(remaining);
+                }
+            }
+            
+            if (remaining <= 0) {
+                handleTimeExpired();
+            }
+        }, 1000);
+    }
+
+    function handleTimeExpired() {
+        clearInterval(timerInterval);
+        sessionStorage.removeItem('quizTargetEndTime');
+        if (timerDisplayElement) {
+            timerDisplayElement.textContent = "시간이 만료되었습니다! 자동으로 제출합니다...";
+        }
+        if (submitButton && !submitButton.disabled) {
+            submitButton.disabled = true;
+            submitButton.textContent = '자동 제출 중...';
+        }
+        
+        isAutoSubmitting = true;
+        if (mainForm) {
+            mainForm.submit();
+        }
+    }
+
+    
+    if (mainForm) {
+        startOrResumeTimer();
+
+        mainForm.addEventListener('submit', function() {
+            clearInterval(timerInterval);
+            sessionStorage.removeItem('quizTargetEndTime');
+            if (submitButton && !submitButton.disabled) {
+                submitButton.disabled = true;
+                submitButton.textContent = '제출 중...';
+            }
+        });
+    }
+
+    // --- 페이지 이탈 및 입력 제한 관련 이벤트 리스너 ---
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "F5" || (e.ctrlKey && (e.key === "r" || e.key === "R")) || (e.metaKey && (e.key === "r" || e.key === "R"))) {
+        }
+        if ((e.ctrlKey || e.metaKey) && (e.key === "c" || e.key === "C")) {
+            e.preventDefault();
+        }
+        if (e.key === "F12" || (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "i" || e.key === "J" || e.key === "j" || e.key === "C" || e.key === "c")) || (e.ctrlKey && (e.key === "U" || e.key === "u"))) {
+            e.preventDefault();
+        }
+    });
+
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    window.addEventListener('beforeunload', function (e) {
+        if (isAutoSubmitting || !sessionStorage.getItem('quizTargetEndTime')) {
+            return; 
+        }
+        var confirmationMessage = '이 페이지를 벗어나면 응시 정보가 저장되지 않을 수 있습니다. 정말로 나가시겠습니까?';
+        (e || window.event).returnValue = confirmationMessage;
+        return confirmationMessage;
+    });
+
+});
+</script>
